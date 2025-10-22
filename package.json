@@ -1,0 +1,15 @@
+{
+  "name": "@cba/hello-world",
+  "main": "main.js",
+  "license": "MIT",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "cba-processor"
+  ],
+  "author": "corebapp-tech",
+  "description": "",
+  "dependencies": {}
+}
