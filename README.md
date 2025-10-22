@@ -51,3 +51,44 @@ Enables bidirectional data manipulation from a CoreBApp namespace.
 
 - **Push-Inbound POD**: Data Reception Gateway - receives data into the processor
 - **Push-Outbound POD**: Data Transmission Hub - sends data from the processor
+
+## Processor Architecture
+
+Processors extend the `BaseProcessor` class and implement two core methods:
+
+### Creating a Processor
+
+```typescript
+class HelloWorldProcessor extends BaseProcessor {
+  async process(request: Request): Promise<Response> {
+    return ResponseBuilder.create(200, {
+      message: 'Hello World Corebapp Processor',
+    });
+  }
+  async validateInput(request: Request): Promise<void> {}
+}
+
+export const processor = HelloWorldProcessor;
+```
+
+### Required Methods
+
+#### `process(request: Request): Promise<Response>`
+
+The main method that handles the request and returns a response. This is where your business logic goes.
+
+- **Parameters**: `request` - The incoming HTTP request object
+- **Returns**: `Promise<Response>` - The HTTP response using `ResponseBuilder`
+
+#### `validateInput(request: Request): Promise<void>`
+
+Validates the incoming request before processing. Throw an error if validation fails.
+
+- **Parameters**: `request` - The incoming HTTP request object
+- **Returns**: `Promise<void>` - Should throw an error if validation fails
+
+### Notes
+
+- Always export your processor class as `processor`
+- Use `ResponseBuilder.create()` to construct responses
+- Validation errors thrown in `validateInput()` will be caught and handled automatically
