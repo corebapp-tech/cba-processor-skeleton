@@ -47,7 +47,7 @@ Provides type casting functionality for input parameters to ensure data type con
 
 Enables bidirectional data manipulation from a CoreBApp namespace.
 
-**Components:**
+**POD's (Point Of Data):**
 
 - **Push-Inbound POD**: Data Reception Gateway - receives data into the processor
 - **Push-Outbound POD**: Data Transmission Hub - sends data from the processor
